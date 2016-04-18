@@ -1,0 +1,42 @@
+﻿@model Web.Models.Home.HomeModel
+@{
+    ViewBag.Title = " - ";
+}
+
+@section header{
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/oportunidades-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Aprenda a Programar</h1>
+                        <hr class="small">
+                        <span class="subheading">Seja ousado, venha para uma carreira de sucesso</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+}
+
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        @foreach (var chamada in Model.Chamadas)
+        {
+            <div class="post-preview">
+                <a href="@Url.Action("Artigo", "Home", new { id = chamada.Id })">
+                    <h2 class="post-title">
+                        @chamada.Titulo
+                    </h2>
+                    <h3 class="post-subtitle">
+                        @chamada.Chamada<small> leia mais</small>
+                    </h3>
+                </a>
+                <p class="post-meta">Postado por <a href="#">@chamada.Autor</a> @chamada.DataCriacaoPorExtenso</p>
+            </div>
+                <hr>
+        }
+    </div>
+</div>

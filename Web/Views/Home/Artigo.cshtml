@@ -1,0 +1,35 @@
+﻿@model Web.Models.Home.PostModel
+
+@{
+    ViewBag.Title = Model.Titulo;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('../img/oportunidades-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>@Model.Titulo</h1>
+                        <!-- <h2 class="subheading">Problems look mighty small from 150 miles up</h2> -->
+                        <span class="meta">Postado por <a href="#">@Model.Autor</a> em @Model.PostadoEm</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+}
+
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                @Html.Raw(HttpUtility.HtmlDecode(@Model.Corpo))
+            </div>
+        </div>
+    </div>
+</article>
+
